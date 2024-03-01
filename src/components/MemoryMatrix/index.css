@@ -41,7 +41,7 @@
 .selected {
   background-color: yellow;
 }
-.highlight.button {
+.highlight {
   background-color: rgb(226, 226, 14);
 }
 .game-rules-container {
@@ -62,4 +62,7 @@
   border-radius: 5px;
   font-family: 'Bree serif';
   font-size: 17px;
+}
+.matched {
+  background-color: green;
 }
