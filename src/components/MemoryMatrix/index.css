@@ -66,3 +66,6 @@
 .matched {
   background-color: green;
 }
+.not-matched {
+  background-color: lightskyblue;
+}

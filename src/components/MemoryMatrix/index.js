@@ -11,6 +11,8 @@ class MemoryMatrix extends Component {
     highlightedIndices: [],
 
     isModelOpen: false,
+
+    matched: false,
   }
 
   componentDidMount() {
@@ -46,24 +48,22 @@ class MemoryMatrix extends Component {
 
     if (highlightedIndices.includes(index)) {
       console.log('matched')
-
-      this.getButtonClass()
     } else {
       console.log('not matched')
 
-      this.intervalId = setInterval(this.getGridButtons, 6000)
+      this.intervalId = setInterval(this.getGridButtons, 3000)
     }
   }
 
   getButtonClass(index) {
-    const {highlightedIndices} = this.state
+    const {highlightedIndices, matched} = this.state
 
-    if (highlightedIndices.includes(index + 1)) {
+    if (highlightedIndices.includes(index) && matched) {
       return 'highlight'
     }
 
-    if (highlightedIndices.includes(index)) {
-      return 'matched'
+    if (!highlightedIndices.includes(index) && !matched) {
+      return 'not-matched'
     }
 
     return ''
