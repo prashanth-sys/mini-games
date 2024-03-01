@@ -26,6 +26,7 @@ class MemoryMatrix extends Component {
         this.setState({highlightedIndices: []})
       }, 3000)
     })
+    console.log('New grid buttons:', slicedArray)
   }
 
   toggleModel = () => {
@@ -35,11 +36,13 @@ class MemoryMatrix extends Component {
   }
 
   onClickCell = index => {
+    clearInterval(this.intervalId)
     const {highlightedIndices} = this.state
     if (highlightedIndices.includes(index)) {
       console.log('matched')
     } else {
       console.log('not matched')
+      this.intervalId = setInterval(this.getGridButtons, 6000)
     }
   }
 
